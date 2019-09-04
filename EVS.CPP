@@ -1,17 +1,3 @@
-//********************************************************** 
-// PROJECT ELECTION-VOTING SOFTWARE
-//**********************************************************
-
-
-/* THIS PROJECT IS MADE BY SAJAN ARORA */
-
-
-//**********************************************************
-//	INCLUDED HEADER FILES
-//**********************************************************
-
-
-
 #include<iostream.h>
 #include<fstream.h>
 #include<process.h>
@@ -109,13 +95,6 @@ getch();
 }
 }
 
-
-
-//**********************************************************
-// THIS FUNCTION TRUE WHEN THE STRING PASSED AS ARGUMENT IS
-// IS NUMBER
-//**********************************************************
-
 int string_is_number(char* s)
 {
 int size = strlen(s);
@@ -160,11 +139,6 @@ int numVotes;
 };
 
 
-//**********************************************************
-//	CLASS NAME : vote
-//	DETAILS : IT CONTROLLS OVER ALL THE FUNCTIONS
-// RELATED TO VOTING ITEMS
-//**********************************************************
 
 class vote
 {
@@ -201,10 +175,6 @@ candidate_status* init_candidate_status(int &num);
 } ;
 
 
-//**********************************************************
-//	CLASS NAME : menu
-//	DETAILS : IT CONTROLLS OVER ALL THE FUNCTIONS
-//**********************************************************
 class menu
 {
 public :
@@ -214,10 +184,6 @@ void edit_menu(void) ;
 vote v;
 } ;
 
-
-//**********************************************************
-// THIS FUNCTION CREATE MAIN MENU AND CALLS OTHER FUNCTIONS
-//**********************************************************
 
 void menu :: main_menu(void)
 {
@@ -272,11 +238,6 @@ if (ch == '0')
 break ;
 }
 }
-
-
-//**********************************************************
-// THIS FUNCTION CREATE EDIT MENU AND CALLS OTHER FUNCTIONS
-//**********************************************************
 
 void menu :: edit_menu(void)
 {
@@ -379,11 +340,6 @@ break ;
 
 
 
-//**********************************************************
-// THIS FUNCTION RETURNS THE CODE OF THE LAST RECORD OF THE
-// VOTER IN THE VOTER FILE (VOTER.DAT).
-//**********************************************************
-
 int vote :: last_voter_code(int &num_voters)
 {
 voter_record vr;
@@ -401,10 +357,6 @@ file.close() ;
 return t ;
 }
 
-
-//**********************************************************
-// THIS FUNCTION DISPLAY THE LIST OF THE NAMES OF VOTERS
-//**********************************************************
 
 void vote :: list_of_voters_names(void)
 {
@@ -469,10 +421,6 @@ getche() ;
 file.close () ;
 }
 
-
-//**********************************************************
-// THIS FUNCTION ADD RECORDS IN THE VOTER FILE (VOTER.DAT)
-//**********************************************************
 
 void vote :: add_voter_name(void)
 {
@@ -611,11 +559,6 @@ return ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION DISPLAY THE RECORD OF THE GIVEN CODE FROM
-// THE VOTER FILE (VOTER.DAT)
-//**********************************************************
-
 void vote :: display_voter_record(int vcode)
 {
 voter_record vr;
@@ -641,10 +584,6 @@ file.close() ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION RETURN THE VALUE 1 IF THE RECORD IS FOUND
-// FOR THE GIVEN CODE IN THE VOTER FILE (VOTER.DAT)
-//**********************************************************
 
 int vote :: name_voter_found(int tcode)
 {
@@ -666,11 +605,6 @@ return found ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION RETURN THE RECORD NO. OF THE GIVEN CODE IN
-// THE VOTER FILE (VOTER.DAT)
-//**********************************************************
-
 int vote :: voter_recordno(int tcode, voter_record &vr)
 {
 voter_record temp;
@@ -691,11 +625,6 @@ file.close() ;
 return found ;
 }
 
-
-//**********************************************************
-// THIS FUNCTION DELETES THE RECORD FOR THE GIVEN CODE FROM
-// THE VOTER FILE (VOTER.DAT)
-//**********************************************************
 
 void vote :: delete_voter_record(int tcode)
 {
@@ -729,11 +658,6 @@ file.close() ;
 temp.close() ;
 }
 
-
-//**********************************************************
-// THIS FUNCTION GIVES THE CODE NO. TO DELETE RECORD FROM
-// THE VOTER FILE (VOTER.DAT)
-//**********************************************************
 
 void vote :: delete_voter_name(void)
 {
@@ -784,11 +708,6 @@ cout <<"\7Record Deleted" ;
 getch() ;
 }
 
-
-//**********************************************************
-// THIS FUNCTION MODIFY THE RECORD FOR THE GIVEN CODE FROM
-// THE VOTER FILE (VOTER.DAT)
-//**********************************************************
 
 void vote :: modify_voter_record(int tcode)
 {
@@ -970,11 +889,6 @@ getch() ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION GIVES THE CODE NO. TO MODIFY RECORD FROM
-// THE VOTER FILE (VOTER.DAT)
-//**********************************************************
-
 void vote :: modify_voter_name(void)
 {
 clrscr() ;
@@ -1022,10 +936,6 @@ modify_voter_record(tcode) ;
 
 
 
-//**********************************************************
-// THIS FUNCTION SORT THE RECORD IN THE VOTER FILE (VOTER.DAT)
-// ACCORDING TO THE CODE NOS.
-//**********************************************************
 
 void vote :: voter_sort(void)
 {
@@ -1035,31 +945,18 @@ fstream file ;
 file.open("VOTER.DAT", ios::in|ios::binary) ;
 
 
-//*************************************************************
-// COUNT THE NUMBER OF RECORDS IN THE FILE
-//************************************************************
 while (file.read((char *) &temp, sizeof(voter_record)))
 i++ ;
 file.clear();
 
 
 
-//*************************************************************
-// CREATE AN ARRAY TO HOLD ALL THE RECORDS
-//*************************************************************
 arr = (voter_record*) new voter_record[i];
 int size ;
 size = i ;
 
-
-//*************************************************************
-// SEEK THE FIE BACK TO THE BEGINNING
-//*************************************************************
 file.seekg(0,ios::beg) ;
 
-//*************************************************************
-// READ THE RECORDS FROM THE FILE TO THE ARRAY
-//*************************************************************
 for( i = 0; i < size; i++)
 file.read((char*)&(arr[i]),sizeof(voter_record));
 file.close() ;
@@ -1088,9 +985,6 @@ file.close() ;
 
 
 
-//**********************************************************
-// THIS FUNCTION IS THE MAIN FUNCTION CALLING THE MAIN MENU
-//**********************************************************
 
 void main(void)
 {
@@ -1108,11 +1002,6 @@ m.main_menu() ;
 }
 
 
-
-//**********************************************************
-// THIS FUNCTION SORT THE RECORD IN THE CANDIDATE FILE (CANDIDATE.DAT)
-// ACCORDING TO THE CODE NOS.
-//**********************************************************
 
 
 void vote :: candidate_sort(void)
@@ -1162,11 +1051,6 @@ file.close() ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION GIVES THE CODE NO. TO MODIFY RECORD FROM
-// THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
-
 void vote :: modify_candidate_name(void)
 {
 clrscr() ;
@@ -1212,11 +1096,6 @@ return ;
 modify_candidate_record(tcode) ;
 }
 
-
-//**********************************************************
-// THIS FUNCTION MODIFY THE RECORD FOR THE GIVEN CODE FROM
-// THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
 
 void vote :: modify_candidate_record(int tcode)
 {
@@ -1432,11 +1311,6 @@ getch() ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION RETURN THE VALUE 1 IF THE RECORD IS FOUND
-// FOR THE GIVEN CODE IN THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
-
 int vote :: name_candidate_found(int tcode)
 {
 candidate_record cr;
@@ -1456,11 +1330,6 @@ file.close() ;
 return found ;
 }
 
-
-//**********************************************************
-// THIS FUNCTION DISPLAY THE RECORD OF THE GIVEN CODE FROM
-// THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
 
 void vote :: display_candidate_record(int tcode)
 { candidate_record cr;
@@ -1492,9 +1361,6 @@ file.close() ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION ADD RECORDS IN THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
 
 void vote :: add_candidate_name(void)
 {
@@ -1716,9 +1582,6 @@ ch = toupper(ch) ;
 }
 
 
-//**********************************************************
-// THIS FUNCTION DISPLAY THE LIST OF THE NAMES OF CANDIDATES
-//**********************************************************
 
 void vote :: list_of_candidate_names(void)
 {
@@ -1792,10 +1655,6 @@ file.close () ;
 
 
 
-//**********************************************************
-// THIS FUNCTION RETURNS THE CODE OF THE LAST RECORD IN THE
-// CANDIDATE FILE (CANDIDATE.DAT).
-//**********************************************************
 
 int vote :: last_candidate_code(int &num_candidates)
 {
@@ -1814,12 +1673,6 @@ file.close() ;
 return t ;
 }
 
-
-
-//**********************************************************
-// THIS FUNCTION RETURN THE RECORD NO. OF THE GIVEN CODE IN
-// THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
 
 int vote :: candidate_recordno(int tcode,candidate_record &cr)
 {
@@ -1843,10 +1696,6 @@ return found ;
 
 
 
-//**********************************************************
-// THIS FUNCTION DELETES THE RECORD FOR THE GIVEN CODE FROM
-// THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
 
 void vote :: delete_candidate_record(int tcode)
 {
@@ -1880,12 +1729,6 @@ file.close() ;
 temp.close() ;
 }
 
-
-
-//**********************************************************
-// THIS FUNCTION GIVES THE CODE NO. TO DELETE RECORD FROM
-// THE CANDIDATE FILE (CANDIDATE.DAT)
-//**********************************************************
 
 void vote :: delete_candidate_name(void)
 {
